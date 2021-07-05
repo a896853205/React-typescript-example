@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 import AntdRouterMenu, {
   MenuItem,
   MenuItemGroup,
-} from '../../components/Antd-router-menu/Antd-router-menu';
+} from '../../components/Antd-router-menu';
 import PageLoading from '../../components/page-loading';
 
 const { Content, Footer, Sider } = Layout;
@@ -34,7 +34,11 @@ const MENU_DATA = [
 export default ({ route }: RouteConfigComponentProps) => {
   return (
     <Layout>
-      <Sider theme='light' className='home-sider'>
+      <Sider
+        theme='light'
+        className='home-sider'
+        breakpoint='lg'
+        collapsedWidth='0'>
         <AntdRouterMenu menuData={MENU_DATA} />
       </Sider>
       <div className='home-content-box'>

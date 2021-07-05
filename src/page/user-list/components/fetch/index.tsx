@@ -3,6 +3,7 @@ import React from 'react';
 import { useAntdTable } from 'ahooks';
 import { PaginatedParams } from 'ahooks/lib/useAntdTable';
 import axios from 'axios';
+import { Input, Button, Row, Col } from 'antd';
 
 import Show from '../show';
 import * as APIS from 'src/constants/api-constants';
@@ -34,5 +35,36 @@ export default () => {
     defaultPageSize: 5,
   });
 
-  return <Show tableProps={tableProps} />;
+  return (
+    <>
+      <Row
+        justify='space-between'
+        align='top'
+        gutter={[0, { xs: 8, sm: 12, md: 16, lg: 16 }]}>
+        <Col lg={5} sm={11} xs={24}>
+          <Input placeholder='输入名称' />
+        </Col>
+        <Col lg={5} sm={11} xs={24}>
+          <Input placeholder='输入专利所属公司' />
+        </Col>
+        <Col lg={5} sm={11} xs={24}>
+          <Input placeholder='输入应用领域' />
+        </Col>
+        <Col lg={5} sm={11} xs={24}>
+          <Input placeholder='输入录入日期' />
+        </Col>
+        <Col lg={3} sm={11} xs={24}>
+          <Button
+            type='primary'
+            style={{
+              width: '100%',
+            }}>
+            查询
+          </Button>
+        </Col>
+      </Row>
+
+      <Show tableProps={tableProps} />
+    </>
+  );
 };
